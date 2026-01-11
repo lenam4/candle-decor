@@ -1,0 +1,310 @@
+/* Animacija fade-in */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+/* Reset i font */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdf6f0; /* svetla elegantna pozadina */
+    color: #333;
+}
+
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+/* Header */
+#meni {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgba(255,255,255,0.95);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+#links ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0; 
+}
+#links ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+    color: #5a3e36;
+}
+
+#links ul li a:hover {
+    color: #dba5d6;
+}
+
+#button {
+    background-color: #dba5d6;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#button:hover {
+    background-color: #ba91c8;
+}
+
+/* Logo */
+.logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #5a3e36;
+}
+.logo-text .span { color: #dba5d6; }
+
+/* Hero sekcija */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /* fullscreen sekcija */
+    text-align: center;
+    padding-top: 80px; /* prostor za fiksni meni */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: #5a3e36;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.3s;
+}
+
+.hero-content p {
+    font-size: 22px;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 1s forwards 0.8s;
+    color: #5a3e36;
+}
+
+.cta-button {
+    background-color: #dba5d6;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeIn 1s forwards 1.3s;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    background-color: #ba91c8;
+}
+
+/* Suptilni dekorativni element */
+.hero-decor {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #dba5d6, #f6e0f2);
+    top: 20%;
+    right: 10%;
+    opacity: 0.3;
+}
+
+.about{
+    display: flex;
+    justify-content:space-around;
+    padding:20px 70px;
+    position: relative;
+}
+.about-content{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 30px;
+    animation: fadeIn 1s forwards;
+    opacity: 0;
+}
+.about-content h2{
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #5a3e36;
+}
+.about-content p{
+    font-size: 18px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 25px;
+}
+.about-image{
+    width: 40%;
+}
+.about-image img{
+    width: 100%;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0px 2px 20px #dba5d6;
+    animation: fadeIn 1s forwards;
+    opacity: 0;
+}
+.about-button{
+    color: white;
+    width: clamp(160px, 30%, 220px);
+    padding: 12px 28px;
+    background-color:#dba5d6;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+.about-button:hover{
+    background-color: #ba91c8;
+}
+#about-more{
+    display: none;
+    animation: fadeIn 0.66s ease-in-out;
+}
+
+.products h2{
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #5a3e36;
+    padding: 70px;
+}
+#products-blocks{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+
+}
+
+.product-block{
+    width: 20%;
+    border: 2px solid #ddd;
+    border-radius: 5%;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-block:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+.product-block img{
+    display: block;
+    width: 100%;
+    height: 400px;
+}
+.product-block p{
+    font-size: 17px;
+    margin: 10px;
+}
+.candleName{
+    color: #5a3e36;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+    padding-left: 10px;
+}
+.price{
+    color: #dba5d6;
+    padding: 10px;
+    font-size: 17px !important;
+}
+.description{
+    color: #747474;
+    align-items: center;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.details{
+    list-style-type: none;
+    color: #555;
+}
+.details li strong{
+    color: #5a3e36;
+    font-weight: 500;
+}
+#contactForm{
+    padding: 70px;
+}
+#contactForm h4{
+    text-align: center;
+    padding-bottom: 15px;
+}
+#contactForm h5{
+    text-align: center;
+    padding-bottom: 22px;
+}
+#contactForm h4, #contactForm h5, #contactForm p{
+    color: #5a3e36;
+}
+#formFields{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+#formFields input, select, textarea{
+    width: 70%;
+    max-width: 600px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+#formFields p{
+    font-size: 17px;
+}
+#formFields input:focus,
+#formFields textarea:focus,
+#formFields select:focus {
+    outline: none;
+    border-color: #dba5d6;
+    box-shadow: 0 0 0 3px rgba(219, 165, 214, 0.25);
+}
+#formFields select{
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%235a3e36' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    
+}
+
+.formButton{
+    padding: 12px 13px;
+    width: 10%!important;
+    font-size: 14px;
+    border-radius: 50px!important;
+    background-color: #dba5d6;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.formButton:hover{
+    background-color: #ba91c8;
+}

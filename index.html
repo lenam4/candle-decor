@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <!--Favicon-->
+    <link rel="icon" href="assets/img/favicon1.png" type="image/x-icon">
+    <!--Font Awsome-->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://siteassets.fontawesome.com/releases/v6.0.0/css/all.css"/>
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css"/>
+    <title>Candle Décor</title>
+</head>
+<body>
+    <header id="meni">
+        <div id="logo" class="logo-text">Candle <span class="span">Décor</span></div>
+        <nav id="links"></nav>
+        <button id="button">Contact us</button>
+    </header>
+
+    <!-- Hero sekcija -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Candle Décor</h1>
+            <p>Elegance and warmth in every detail</p>
+            <button class="cta-button" id="exploreBtn">Explore Collection</button>
+        </div>
+        <!-- Suptilni dekorativni elementi -->
+        <div class="hero-decor"></div>
+    </section>
+    
+    <!--About sekcija-->
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>About Candle Décor</h2>
+            <p>Candle Décor was born from a passion for creating warm, elegant spaces.
+                Every candle is crafted with care, using natural wax and delicate fragrances
+                that bring harmony, comfort and beauty to your home.</p>
+
+            <p id="about-more" class="hidden">Each Candle Décor piece is hand-poured in small batches using eco-friendly
+                soy wax and carefully selected fragrances. We believe that a candle is more
+                han a decoration – it is a feeling. Our mission is to turn everyday moments
+                into calm, cozy experiences filled with warmth, balance and subtle luxury.</p>
+            <button class="about-button" id="aboutButton">Learn More</button> 
+            
+        </div>
+                <div class="about-image">
+                    <img src="assets/img/about.png" alt="Candle Decor"/>
+                </div>
+        
+    </section>
+    
+    <section class="products" id="products">
+        <h2>Our Candles</h2>
+        <div id="products-blocks">
+            <!-- <div class="product-block">
+                <img src="" alt=""/>
+                <p>Candle</p>
+                <p>13$</p>
+            </div> -->
+        </div>
+    </section>
+
+    <!--Modal-->
+    <div id="contactModal" class="modal">
+        <span class="close">&times;</span>
+        <h2>Contact / Order Form</h2>
+    </div>
+
+    <form id="contactForm">
+        <h4>Let’s Create Something Warm Together</h4>
+        <h5>Have a question or a special request? We’d love to hear from you.</h5>
+        <div id="formFields">
+        <input type="text" placeholder="First name" id="firstName"/>
+        <p id="error"></p>
+        <input type="text" placeholder="Last name"/>
+        <input type="email" placeholder="Email Address"/>
+        <p>Reason for Contact</p>
+        <select>
+            <option value="0">Choose</option>
+            <option value="1">Product inquiry</option>
+            <option value="2">Custom candle request</option>
+            <option value="3">Wholesale / bulk order</option>
+            <option value="4">Collaboration</option>
+            <option value="5">General question</option>
+        </select>
+        <textarea placeholder="Your message or special request..."></textarea>
+        <input type="submit" value="Submit" class="formButton"></button>
+        </div>
+    </form>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
