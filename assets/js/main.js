@@ -2,23 +2,26 @@ let meni = [
     "Home",
     "About",
     "Products",
-    "Author"
+    "Author",
+    "Zip"
 ];
 
 let meniPutanje = [
     "#",
     "#about",
     "#products",
-    "#author"
+    "author.html",
+    "assets/zip/candle.zip"
 ];
-
-let ispis="<ul>";
+function renderMenu(menuItems, menuLinks){
+let output="<ul>";
 for(let i = 0; i < meni.length; i++){
-    ispis+=`<li><a href="${meniPutanje[i]}">${meni[i]}</a></li>`;
+    output+=`<li><a href="${meniPutanje[i]}">${meni[i]}</a></li>`;
 }
-ispis+="</ul>";
-document.getElementById("links").innerHTML = ispis;
-
+output+="</ul>";
+return output;
+}
+document.getElementById("links").innerHTML = renderMenu(meni, meniPutanje);
 
 let imgSrc = [
     "iceLatteCandle", 
@@ -140,23 +143,151 @@ aboutButton.addEventListener("click", function(){
     
     }
 });
+//DINAMICKO KREIRANJE
+const selectContainer = document.getElementById("selectContainer");
+const select = document.createElement("select");
+select.id = "reason";
+select.innerHTML = "<option value='0'>Choose</option>";
+const options = ["Product inquiry", "Custom candle request", "Wholesale / bulk order", "Collaboration", "General question"];
 
+options.forEach(text=>{
+    const optionEl = document.createElement("option");
+    optionEl.value = text;
+    optionEl.textContent = text;
+    select.appendChild(optionEl);
+    
+});
+selectContainer.appendChild(select);
+
+select.style.height = "50px";
+select.style.padding = "14px 16px";
+
+//REGULARNI IZRAZI
 const contactForm = document.getElementById("contactForm");
 const firstName = document.getElementById("firstName");
-const error = document.getElementById("error");
+const lastName = document.getElementById("lastName");
+const email = document.getElementById("email");
+const reason = document.getElementById("reason");
+const message = document.getElementById("message");
+const success = document.getElementById("success");
+const errorFirst = document.getElementById("errorFirst");
+const errorLast = document.getElementById("errorLast");
+const errorEmail = document.getElementById("errorEmail");
+const errorReason = document.getElementById("errorReason");
+const errorMessage = document.getElementById("errorMessage");
+
 
 contactForm.addEventListener("submit", function(e){
     e.preventDefault();
 
-    const regex = /^[A-Z][a-z]{2,10}$/;
+    // Clear previous success message
+    success.textContent = "";
 
-    if(regex.test(firstName.value)){
-        error.textContent = "";
+    const regex = /^[A-Z][a-z]{2,10}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let valid = true;
+
+    // First Name validation
+    if(!regex.test(firstName.value)){
+        errorFirst.textContent = "First name must start with a capital letter";
+        valid = false;
+    } else {
+        errorFirst.textContent = "";
     }
-    else{
-        error.textContent = "Name must start with capital letter";
+
+    // Last Name validation
+    if(!regex.test(lastName.value)){
+        errorLast.textContent = "Last name must start with a capital letter";
+        valid = false;
+    } else {
+        errorLast.textContent = "";
+    }
+
+    // Email validation
+    if(!emailRegex.test(email.value)){
+        errorEmail.textContent = "Please enter a valid email";
+        valid = false;
+    } else {
+        errorEmail.textContent = "";
+    }
+
+    // Reason validation
+    if(reason.value === "0"){
+        errorReason.textContent = "Please select a reason";
+        valid = false;
+    } else { 
+        errorReason.textContent = ""; 
+    }
+
+    // Message validation
+    if(message.value.trim() === ""){
+        errorMessage.textContent = "Message cannot be empty";
+        valid = false;
+    } else {
+        errorMessage.textContent = "";
+    }
+
+    // Show success only if form is valid
+    if(valid){
+        success.textContent = "Form submitted successfully!";
+        success.style.color = "green";
+        contactForm.reset();
     }
 });
+
+document.getElementById("footerLinks").innerHTML = renderMenu(meni, meniPutanje);
+
+const socialNames = ["facebook", "instagram", "twitter"];
+const socialLinks = [
+    "https://www.facebook.com",
+    "https://www.instagram.com",
+    "https://www.twitter.com"
+];
+
+const socialDiv = document.createElement("div");
+socialDiv.id = "footerSocial";
+socialDiv.style.display = "flex";
+socialDiv.style.gap = "15px";
+
+for (let i = 0; i < socialNames.length; i++) {
+    const a = document.createElement("a");
+    a.href = socialLinks[i];
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+
+    const iTag = document.createElement("i");
+    iTag.className = `fab fa-${socialNames[i]}`;
+    iTag.style.opacity = "0.5";
+    iTag.style.cursor = "pointer";
+    iTag.style.color = "#5a3e36";
+
+    a.appendChild(iTag);
+    socialDiv.appendChild(a);
+}
+
+document.getElementById("footerNav").appendChild(socialDiv);
+
+
+const hamburger = document.getElementById("hamburger");
+const links = document.getElementById("links");
+
+hamburger.addEventListener("click", () => {
+    links.classList.toggle("active");
+});
+
+function toggleContactButton() {
+    const btn = document.getElementById("button");
+    if (!btn) return;
+
+    if (window.innerWidth <= 600) {
+        btn.style.display = "none";
+    } else {
+        btn.style.display = "inline-block";
+    }
+}
+
+window.addEventListener("load", toggleContactButton);
+window.addEventListener("resize", toggleContactButton);
 
 
 window.addEventListener("load", () => {
@@ -165,3 +296,4 @@ window.addEventListener("load", () => {
         history.replaceState(null, null, " ");
     }, 0);
 });
+

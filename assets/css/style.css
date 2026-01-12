@@ -16,7 +16,7 @@ html{
 }
 
 /* Header */
-#meni {
+#meni{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -29,14 +29,14 @@ html{
     z-index: 1000;
 }
 
-#links ul {
+#links ul{
     display: flex;
     list-style: none;
     gap: 30px;
     margin: 0;
     padding: 0; 
 }
-#links ul li a {
+#links ul li a{
     text-decoration: none;
     color: #333;
     font-weight: 500;
@@ -222,6 +222,7 @@ html{
     margin: 10px;
 }
 .candleName{
+    margin-top: 10px;
     color: #5a3e36;
     font-family: 'Playfair Display', serif;
     font-size: 20px;
@@ -267,7 +268,7 @@ html{
     margin: 0 auto;
     align-items: center;
 }
-#formFields input, select, textarea{
+#formFields input, #selectContainer select, textarea{
     width: 70%;
     max-width: 600px;
     padding: 14px 16px;
@@ -282,12 +283,12 @@ html{
 }
 #formFields input:focus,
 #formFields textarea:focus,
-#formFields select:focus {
+#formFields #selectContainer select:focus {
     outline: none;
     border-color: #dba5d6;
     box-shadow: 0 0 0 3px rgba(219, 165, 214, 0.25);
 }
-#formFields select{
+#formFields #selectContainer select{
     appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg fill='%235a3e36' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
     background-repeat: no-repeat;
@@ -304,7 +305,163 @@ html{
     color: white;
     cursor: pointer;
     transition: 0.3s;
+    min-width: 100px;
 }
 .formButton:hover{
     background-color: #ba91c8;
+}
+#formFields #errorFirst,
+#formFields #errorLast, 
+#formFields #errorEmail,
+#formFields #errorReason,
+#formFields #errorMessage{
+    margin: 2px 0; 
+    font-size: 0.9em; 
+    color: rgb(238, 123, 123);
+}
+#selectContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px; /* kao kod inputa */
+}
+footer {
+    padding: 20px 0;
+    width: 100%;
+    background: #fff; /* po želji */
+}
+
+.footer-wrapper {
+    width: 90%;
+    max-width: 1200px; /* opcionalno za veće ekrane */
+    margin: 0 auto;
+}
+
+#footerNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#footerLinks ul {
+    display: flex;
+    gap: 30px;
+    margin: 0;       /* važno */
+    padding: 0;      /* važno */
+    list-style: none;
+}
+
+#footerLinks ul li a:hover{
+    color: #dba5d6;
+}
+
+#footerLinks ul li a {
+    text-decoration: none;
+    color: #5a3e36;
+}
+
+.footer-divider {
+    border: none;
+    height: 2px;
+    background-color: #dba5d6;
+    margin: 20px 0;
+}
+
+#footerDown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;        /* uklanja default margine */
+    padding: 0;       /* uklanja padding */
+    color: #5a3e36;
+}
+
+#footerDown p {
+    margin: 0;       /* važno */
+}
+
+#footerDown a{
+    color: #5a3e36;
+    text-decoration: none;
+}
+#footerDown a:hover{
+    color: #dba5d6;
+}
+
+.author-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 100px 50px;
+    background-color: #fdf6f0;
+}
+
+.author-image {
+    flex: 1;
+    max-width: 400px;
+}
+
+.author-image img {
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 5px 20px rgba(219, 165, 214, 0.5);
+}
+
+.author-info {
+    flex: 1;
+    font-family: 'Poppins', sans-serif;
+    color: #5a3e36;
+}
+
+.author-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.author-info p {
+    font-size: 18px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.author-info span {
+    font-weight: 600;
+    color: #dba5d6;
+}
+
+
+.back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 30px 50px 20px; /* razmak od headera i sekcije */
+    text-decoration: none;
+    font-weight: 500;
+    color: #5a3e36;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.back-home i {
+    font-size: 18px;
+}
+
+.back-home:hover {
+    color: #dba5d6;
+}
+
+#hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+#hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #5a3e36;
+    border-radius: 2px;
 }
